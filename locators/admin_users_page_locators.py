@@ -98,3 +98,6 @@ class RolesPageLocators:
     MODAL_WINDOW_ROLE = (By.XPATH, "//*[@role='document']")
     MODAL_WINDOW_ROLE_INPUTS_LIMITS = (
         By.XPATH, "//*[@class='ant-modal']//*[@class='ant-input-number-input']")
+    NAME_ALERT = (By.XPATH, "//*[@class='ant-col ant-col-16 "
+                            "ant-form-item-control']//*["
+                            "@class='ant-form-item-explain-error']")

@@ -22,8 +22,12 @@ def get_webdriver(get_chrome_options):
 
 
 @pytest.fixture(scope='function')
-def driver(get_webdriver):
+def driver(request, get_webdriver):
     driver = get_webdriver
     driver.set_window_size(1920, 1080)
+    url = "https://bdas-utility-01.bdpak.frontier.kz:7002/"
+    if request.cls is not None:
+        request.cls.driver = driver
+    driver.get(url)
     yield driver
     driver.quit()

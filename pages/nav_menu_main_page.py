@@ -2,6 +2,7 @@ from locators.nav_menu_locators import NavMenuLocators
 from locators.login_page_locators import LoginPageLocators
 from selenium.webdriver.common.by import By
 from pages.base_page import BasePage
+from selenium.webdriver.common.action_chains import ActionChains
 
 
 class MainPageNavMenu(BasePage):
@@ -37,9 +38,10 @@ class MainPageNavMenu(BasePage):
         actions.perform()
 
     def switch_to_admin_menu(self, href):
-        admin_menu = self.element_is_visible(self.locators.ADMIN_MENU)
+        admin_menu = self.element_is_present(self.locators.ADMIN_MENU)
         hidden_submenu = self.driver.find_element(By.XPATH, f"//a[normalize-space()='{href}']")
-        actions = self.action_move_to_element(admin_menu)
+        actions = ActionChains(self.driver)
+        actions.move_to_element(admin_menu)
         actions.click(hidden_submenu)
         actions.perform()
 
