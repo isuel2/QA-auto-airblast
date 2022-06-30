@@ -1,10 +1,9 @@
 from pages.base_page import BasePage
 from locators.admin_users_page_locators import RolesPageLocators
-from pages.nav_menu_main_page import MainPageNavMenu
 from generator.generator import generated_person
 
 
-class RolesFormPage(BasePage):
+class RolesCreatePage(BasePage):
     locators = RolesPageLocators()
 
     def create_role(self):
@@ -14,12 +13,12 @@ class RolesFormPage(BasePage):
     def fill_name_field(self):
         person_info = next(generated_person())
         name = person_info.name
-        self.element_is_visible(self.locators.ROLE_FORM_NAME).send_keys(name)
+        self.element_is_visible(self.locators.ROLE_NAME_FORM).send_keys(name)
         return name
 
     def fill_name_field_cyrillic(self):
         name = "Пользователь"
-        self.element_is_visible(self.locators.ROLE_FORM_NAME).send_keys(name)
+        self.element_is_visible(self.locators.ROLE_NAME_FORM).send_keys(name)
         return name
 
     def fill_all_fields(self):
@@ -31,7 +30,7 @@ class RolesFormPage(BasePage):
         ram_limit = person_info.ram_limit
         total_core_limit = person_info.total_core_limit
         total_ram_limit = person_info.total_ram_limit
-        self.element_is_visible(self.locators.ROLE_FORM_NAME).send_keys(name)
+        self.element_is_visible(self.locators.ROLE_NAME_FORM).send_keys(name)
         self.element_is_visible(self.locators.DESCRIPTION_FORM).send_keys(description)
         self.element_is_visible(self.locators.CORE_LIMIT).send_keys(core_limit)
         self.element_is_visible(self.locators.RUNNING_JOB_LIMIT).send_keys(run_job_limit)
@@ -41,11 +40,11 @@ class RolesFormPage(BasePage):
         return name, description, core_limit, run_job_limit, ram_limit, total_core_limit, total_ram_limit
 
     def check_name_fill_form(self):
-        name = [x.get_attribute('value') for x in self.elements_are_present(self.locators.ROLE_FORM_NAME)][0]
+        name = [x.get_attribute('value') for x in self.elements_are_present(self.locators.ROLE_NAME_FORM)][0]
         return name
 
     def check_all_fill_forms(self):
-        name = [x.get_attribute('value') for x in self.elements_are_present(self.locators.ROLE_FORM_NAME)][0]
+        name = [x.get_attribute('value') for x in self.elements_are_present(self.locators.ROLE_NAME_FORM)][0]
         description = [x.get_attribute('value') for x in self.elements_are_present(self.locators.DESCRIPTION_FORM)][0]
         core_limit = [x.get_attribute('value') for x in self.elements_are_present(self.locators.CORE_LIMIT)][0]
         run_job_limit = [x.get_attribute('value') for x in self.elements_are_present(self.locators.RUNNING_JOB_LIMIT)][
@@ -57,8 +56,12 @@ class RolesFormPage(BasePage):
                            self.elements_are_present(self.locators.TOTAL_RAM_LIMIT)][0]
         return name, description, core_limit, run_job_limit, ram_limit, total_core_limit, total_ram_limit
 
+    def check_perm_list_table(self):
+        perms = [x.text for x in self.elements_are_present(self.locators.LIST_PERM_TD)]
+        return perms
+
     def click_submit_button(self):
-        self.element_is_present(self.locators.SUBMIT_BUTTON).click()
+        self.element_is_visible(self.locators.SUBMIT_BUTTON).click()
 
     def check_form_in_list_by_name(self, name: str):
         list_elements = self.locators.LIST_ROLE

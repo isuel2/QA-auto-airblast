@@ -32,15 +32,15 @@ class UsersPageLocators:
 
 class DepartmentsPageLocators:
     CREATE_DEPARTMENT = (By.XPATH, "//a[normalize-space()='Create department']")
-    NAME_FORM = (By.ID, "roleForm_name")
-    DESCRIPTION_FORM = (By.ID, "roleForm_description")
+    DEPARTMENT_NAME_FORM = (By.ID, "departmentForm_name")
+    DESCRIPTION_FORM = (By.ID, "departmentForm_description")
     TYPE_PERMISSION = (By.ID, "type")
     ACTION_PERMISSION = (By.ID, "action")
     CREATED_BY_PERMISSION = (By.ID, "created")
     LIST_PERMISSIONS_IN_FORM = (By.XPATH, "//*[@class='ant-modal']//*[@class='ant-table-tbody']")
     LIST_PERM_TD = (By.XPATH, "//*[@class='ant-modal']//*[@class='ant-table-content']//following::td")
     SUBMIT_PERMISSIONS = (By.XPATH, "(//button[@type='submit'])[1]")
-    SUBMIT_BUTTON = (By.XPATH, "//button[@form='roleForm']//span")
+    SUBMIT_BUTTON = (By.XPATH, "//button[@form='departmentForm']//span")
     LIST_DEPARTMENTS_SWITCH = (By.ID, "rc-tabs-0-tab-departments")
     LIST_DEPARTMENTS = (By.XPATH, "*//tbody//*[text()='*name*']")
     LIST_DEPARTMENTS_UPDATE_BUTTON = (By.XPATH, "*//td//span[text()='*name*']//following::a")
@@ -49,19 +49,22 @@ class DepartmentsPageLocators:
     MODAL_WINDOW_DEPARTMENT = (By.XPATH, "//*[@role='document']")
     MODAL_WINDOW_ROLE_INPUTS_LIMITS = (
         By.XPATH, "//*[@class='ant-modal']//*[@class='ant-input-number-input']")
+    NAME_ALERT = (By.XPATH, "//*[@class='ant-col ant-col-14 "
+                            "ant-form-item-control']//*["
+                            "@class='ant-form-item-explain-error']")
 
 
 class GroupsPageLocators:
     CREATE_GROUP = (By.XPATH, "//a[normalize-space()='Create group']")
-    NAME_FORM = (By.ID, "roleForm_name")
-    DESCRIPTION_FORM = (By.ID, "roleForm_description")
+    GROUP_NAME_FORM = (By.ID, "groupForm_name")
+    DESCRIPTION_FORM = (By.ID, "groupForm_description")
     TYPE_PERMISSION = (By.ID, "type")
     ACTION_PERMISSION = (By.ID, "action")
     CREATED_BY_PERMISSION = (By.ID, "created")
     LIST_PERMISSIONS_IN_FORM = (By.XPATH, "//*[@class='ant-modal']//*[@class='ant-table-tbody']")
     LIST_PERM_TD = (By.XPATH, "//*[@class='ant-modal']//*[@class='ant-table-content']//following::td")
     SUBMIT_PERMISSIONS = (By.XPATH, "(//button[@type='submit'])[1]")
-    SUBMIT_BUTTON = (By.XPATH, "//button[@form='roleForm']//span")
+    SUBMIT_BUTTON = (By.XPATH, "//button[@form='groupForm']//span")
     LIST_GROUP_SWITCH = (By.ID, "rc-tabs-0-tab-groups")
     LIST_GROUP = (By.XPATH, "*//tbody//*[text()='*name*']")
     LIST_GROUP_UPDATE_BUTTON = (By.XPATH, "*//td//span[text()='*name*']//following::a")
@@ -70,13 +73,16 @@ class GroupsPageLocators:
     MODAL_WINDOW_ROLE = (By.XPATH, "//*[@role='document']")
     MODAL_WINDOW_ROLE_INPUTS_LIMITS = (
         By.XPATH, "//*[@class='ant-modal']//*[@class='ant-input-number-input']")
+    NAME_ALERT = (By.XPATH, "//*[@class='ant-col ant-col-14 "
+                            "ant-form-item-control']//*["
+                            "@class='ant-form-item-explain-error']")
 
 
 # class JobsDatasetsPageLocators:
 
 class RolesPageLocators:
     CREATE_ROLE = (By.XPATH, "//a[normalize-space()='Create role']")
-    ROLE_FORM_NAME = (By.ID, "roleForm_name")
+    ROLE_NAME_FORM = (By.ID, "roleForm_name")
     DESCRIPTION_FORM = (By.ID, "roleForm_description")
     CORE_LIMIT = (By.ID, "roleForm_core_limit")
     RUNNING_JOB_LIMIT = (By.ID, "roleForm_running_job_limit")
