@@ -1,6 +1,20 @@
 from selenium.webdriver.common.by import By
 
 
+class ImagesPageLocators:
+    CREATE_IMAGE = (By.XPATH, "//a[normalize-space()='Create']")
+    NAME_IMAGE_FORM = (By.ID, "imagesForm_name")
+    DESCRIPTION_IMAGE_FORM = (By.ID, "imagesForm_description")
+    BASE_IMAGE_FORM = (By.ID, "imagesForm_base")
+    CODE_INPUT_FORM = (By.CLASS_NAME, "CodeMirror-code")
+    SUBMIT_BUTTON = (By.XPATH, "//button[@form='imagesForm']//span")
+    IMAGE_IN_OVERALL_LIST = (By.XPATH, "*//tbody//*[text()='*name*']")
+    LIST_IMAGE_UPDATE_BUTTON = (By.XPATH, "*//td//span[text()='*name*']//following::a")
+    LIST_IMAGE_DELETE_FROM_LIST = (By.XPATH, "*//td//span[text()='*name*']//following::button[2]")
+    LIST_IMAGE_DELETE_BUTTON = (By.XPATH, "//*[@class='ant-popover-inner-content']//following::button[2]")
+    LIST_IMAGE_BUILD_BUTTON = (By.XPATH, "*//td//a[text()='*name*']//following::button[3]")
+
+
 class UsersPageLocators:
     CREATE_USER = (By.XPATH, "//a[normalize-space()='Create user']")
     FIRST_NAME_FORM = (By.ID, "userForm_first_name")
@@ -8,7 +22,7 @@ class UsersPageLocators:
     LOGIN_FORM = (By.ID, "userForm_username")
     PASSWORD_FORM = (By.ID, "userForm_password")
     DEPARTMENTS_FORM = (By.ID, "userForm_department_id")
-    ROLES_FORM = (By.ID, "userForm_roles")
+    ROLES_FORM = (By.ID, "userForm_role_ids")
     GROUPS_FORM = (By.ID, "userForm_groups")
     EMAIL_FORM = (By.ID, "userForm_email")
     PHONE_FORM = (By.ID, "userForm_phone")
@@ -19,15 +33,19 @@ class UsersPageLocators:
     LIST_PERMISSIONS_IN_FORM = (By.XPATH, "//*[@class='ant-modal']//*[@class='ant-table-tbody']")
     LIST_PERM_TD = (By.XPATH, "//*[@class='ant-modal']//*[@class='ant-table-content']//following::td")
     SUBMIT_PERMISSIONS = (By.XPATH, "(//button[@type='submit'])[1]")
-    SUBMIT_BUTTON = (By.XPATH, "//button[@form='roleForm']//span")
+    SUBMIT_BUTTON = (By.XPATH, "//button[@form='userForm']//span")
     LIST_USER_SWITCH = (By.ID, "rc-tabs-0-tab-users")
-    LIST_USER = (By.XPATH, "*//tbody//*[text()='*first-name*']")
-    LIST_USER_UPDATE_BUTTON = (By.XPATH, "*//td//span[text()='*first-name*']//following::a")
-    LIST_USER_DELETE_FROM_LIST = (By.XPATH, "*//td//span[text()='first-name*']//following::button[2]")
+    USER_IN_OVERALL_LIST = (By.XPATH, "*//tbody//*[text()='*first_name*']")
+    LIST_USER_UPDATE_BUTTON = (By.XPATH, "*//td//span[text()='*first_name*']//following::a")
+    LIST_USER_DELETE_FROM_LIST = (By.XPATH, "*//td//span[text()='*first_name*']//following::button[2]")
     LIST_USER_DELETE_BUTTON = (By.XPATH, "//*[@class='ant-popover-inner-content']//following::button[2]")
     MODAL_WINDOW_ROLE = (By.XPATH, "//*[@role='document']")
     MODAL_WINDOW_ROLE_INPUTS_LIMITS = (
         By.XPATH, "//*[@class='ant-modal']//*[@class='ant-input-number-input']")
+    LIST_USER_STATUS = (By.XPATH, "*//td//span[text()='*first_name*']//following::div")
+    FIRST_NAME_ALERT = (By.XPATH, "//*[@class='ant-col ant-col-14 "
+                                  "ant-form-item-control']//*["
+                                  "@class='ant-form-item-explain-error']")
 
 
 class DepartmentsPageLocators:
@@ -42,7 +60,7 @@ class DepartmentsPageLocators:
     SUBMIT_PERMISSIONS = (By.XPATH, "(//button[@type='submit'])[1]")
     SUBMIT_BUTTON = (By.XPATH, "//button[@form='departmentForm']//span")
     LIST_DEPARTMENTS_SWITCH = (By.ID, "rc-tabs-0-tab-departments")
-    LIST_DEPARTMENTS = (By.XPATH, "*//tbody//*[text()='*name*']")
+    DEPARTMENTS_IN_OVERALL_LIST = (By.XPATH, "*//tbody//*[text()='*name*']")
     LIST_DEPARTMENTS_UPDATE_BUTTON = (By.XPATH, "*//td//span[text()='*name*']//following::a")
     LIST_DEPARTMENT_DELETE_FROM_LIST = (By.XPATH, "*//td//span[text()='*name*']//following::button[2]")
     LIST_DEPARTMENT_DELETE_BUTTON = (By.XPATH, "//*[@class='ant-popover-inner-content']//following::button[2]")
@@ -66,7 +84,7 @@ class GroupsPageLocators:
     SUBMIT_PERMISSIONS = (By.XPATH, "(//button[@type='submit'])[1]")
     SUBMIT_BUTTON = (By.XPATH, "//button[@form='groupForm']//span")
     LIST_GROUP_SWITCH = (By.ID, "rc-tabs-0-tab-groups")
-    LIST_GROUP = (By.XPATH, "*//tbody//*[text()='*name*']")
+    GROUP_IN_OVERALL_LIST = (By.XPATH, "*//tbody//*[text()='*name*']")
     LIST_GROUP_UPDATE_BUTTON = (By.XPATH, "*//td//span[text()='*name*']//following::a")
     LIST_GROUP_DELETE_FROM_LIST = (By.XPATH, "*//td//span[text()='*name*']//following::button[2]")
     LIST_GROUP_DELETE_BUTTON = (By.XPATH, "//*[@class='ant-popover-inner-content']//following::button[2]")
@@ -97,7 +115,7 @@ class RolesPageLocators:
     SUBMIT_PERMISSIONS = (By.XPATH, "(//button[@type='submit'])[1]")
     SUBMIT_BUTTON = (By.XPATH, "//button[@form='roleForm']//span")
     LIST_ROLE_SWITCH = (By.ID, "rc-tabs-0-tab-roles")
-    LIST_ROLE = (By.XPATH, "*//tbody//*[text()='*name*']")
+    ROLE_IN_OVERALL_LIST = (By.XPATH, "*//tbody//*[text()='*name*']")
     LIST_ROLE_UPDATE_BUTTON = (By.XPATH, "*//td//span[text()='*name*']//following::a")
     LIST_ROLE_DELETE_FROM_LIST = (By.XPATH, "*//td//span[text()='*name*']//following::button[2]")
     LIST_ROLE_DELETE_BUTTON = (By.XPATH, "//*[@class='ant-popover-inner-content']//following::button[2]")

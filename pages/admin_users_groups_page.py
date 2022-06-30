@@ -1,5 +1,5 @@
 from pages.base_page import BasePage
-from locators.admin_users_page_locators import GroupsPageLocators
+from locators.admin_page_locators import GroupsPageLocators
 from generator.generator import generated_person
 
 
@@ -51,7 +51,7 @@ class GroupsCreatePage(BasePage):
         return perms
 
     def check_form_in_list_by_name(self, name: str):
-        list_elements = self.locators.LIST_GROUP
+        list_elements = self.locators.GROUP_IN_OVERALL_LIST
         list_elements = (list_elements[0], list_elements[1].replace('*name*', name))
         list_elements = [x.text for x in self.elements_are_present(list_elements)]
         return list_elements
