@@ -5,7 +5,7 @@ from tests.login_test import TestLoginPage
 
 class TestRolePage:
 
-    def test_create_group_all_fill_forms(self, driver):
+    def test_create_group_all_fill_fields(self, driver):
         TestLoginPage().test_login_auth_valid_data(driver)
         MainPageNavMenu(driver).switch_to_admin_menu("Users/Groups")
         GroupsCreatePage(driver).create_group()
@@ -18,7 +18,7 @@ class TestRolePage:
         assert name == output_name
         assert description == output_description
 
-    def test_create_group_required_fill_forms(self, driver):
+    def test_create_group_required_fill_fields(self, driver):
         TestLoginPage().test_login_auth_valid_data(driver)
         MainPageNavMenu(driver).switch_to_admin_menu("Users/Groups")
         GroupsCreatePage(driver).create_group()
@@ -30,7 +30,7 @@ class TestRolePage:
         output_name = GroupsCreatePage(driver).check_name_fill_form()
         assert name == output_name
 
-    def test_create_group_cyrillic_fill_forms(self, driver):
+    def test_create_group_cyrillic_fill_fields(self, driver):
         TestLoginPage().test_login_auth_valid_data(driver)
         MainPageNavMenu(driver).switch_to_admin_menu("Users/Groups")
         GroupsCreatePage(driver).create_group()
@@ -39,7 +39,7 @@ class TestRolePage:
         elements = GroupsCreatePage(driver).check_alert_name_form()
         assert 'Please enter a valid name' in elements
 
-    def test_create_group_empty_fill_forms(self, driver):
+    def test_create_group_empty_fill_fields(self, driver):
         TestLoginPage().test_login_auth_valid_data(driver)
         MainPageNavMenu(driver).switch_to_admin_menu("Users/Groups")
         GroupsCreatePage(driver).create_group()

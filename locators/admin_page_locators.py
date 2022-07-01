@@ -6,13 +6,14 @@ class ImagesPageLocators:
     NAME_IMAGE_FORM = (By.ID, "imagesForm_name")
     DESCRIPTION_IMAGE_FORM = (By.ID, "imagesForm_description")
     BASE_IMAGE_FORM = (By.ID, "imagesForm_base")
-    CODE_INPUT_FORM = (By.CLASS_NAME, "CodeMirror-code")
+    CODE_INPUT_FORM = (By.CLASS_NAME, "CodeMirror-sizer")
     SUBMIT_BUTTON = (By.XPATH, "//button[@form='imagesForm']//span")
     IMAGE_IN_OVERALL_LIST = (By.XPATH, "*//tbody//*[text()='*name*']")
-    LIST_IMAGE_UPDATE_BUTTON = (By.XPATH, "*//td//span[text()='*name*']//following::a")
-    LIST_IMAGE_DELETE_FROM_LIST = (By.XPATH, "*//td//span[text()='*name*']//following::button[2]")
-    LIST_IMAGE_DELETE_BUTTON = (By.XPATH, "//*[@class='ant-popover-inner-content']//following::button[2]")
+    LIST_IMAGE_UPDATE_BUTTON = (By.XPATH, "*//td//*[text()='*name*']//following::button[4]")
+    LIST_IMAGE_DELETE_FROM_LIST = (By.XPATH, "*//td//span[text()='*name*']//following::button[5]")
     LIST_IMAGE_BUILD_BUTTON = (By.XPATH, "*//td//a[text()='*name*']//following::button[3]")
+    LIST_IMAGE_ACCESS_PERMISSIONS = (By.XPATH, "//td//span[text()='*name*']//following::button[2]")
+    LIST_IMAGE_BUILD_STATUS = (By.XPATH, "*//td//a[text()='*name*']//following::span[2]")
 
 
 class UsersPageLocators:

@@ -73,6 +73,7 @@ class RolesCreatePage(BasePage):
         temp = self.locators.LIST_ROLE_UPDATE_BUTTON
         temp = (temp[0], temp[1].replace('*name*', name))
         self.element_is_present(temp).click()
+        return temp
 
     def switch_to_role_list(self):
         self.element_is_present(self.locators.LIST_ROLE_SWITCH).click()

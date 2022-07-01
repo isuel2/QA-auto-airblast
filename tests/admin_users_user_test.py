@@ -8,7 +8,7 @@ from tests.login_test import TestLoginPage
 
 class TestUserPage:
 
-    def test_create_user_all_fill_forms(self, driver):
+    def test_create_user_all_fill_fields(self, driver):
         TestLoginPage().test_login_auth_valid_data(driver)
         MainPageNavMenu(driver).switch_to_admin_menu("Users/Groups")
         UsersCreatePage(driver).create_user()
@@ -29,7 +29,7 @@ class TestUserPage:
         assert groups == output_groups
         assert 'active' == UsersCreatePage(driver).check_status_user(first_name)
 
-    def test_create_user_required_fill_forms(self, driver):
+    def test_create_user_required_fill_fields(self, driver):
         TestLoginPage().test_login_auth_valid_data(driver)
         MainPageNavMenu(driver).switch_to_admin_menu("Users/Groups")
         UsersCreatePage(driver).create_user()
@@ -41,7 +41,7 @@ class TestUserPage:
         output_first_name = UsersCreatePage(driver).check_first_name_fill_form()
         assert first_name == output_first_name
 
-    def test_create_user_cyrillic_fill_forms(self, driver):
+    def test_create_user_cyrillic_fill_fields(self, driver):
         TestLoginPage().test_login_auth_valid_data(driver)
         MainPageNavMenu(driver).switch_to_admin_menu("Users/Groups")
         UsersCreatePage(driver).create_user()
@@ -50,11 +50,10 @@ class TestUserPage:
         elements = UsersCreatePage(driver).check_alert_name_form()
         assert 'Please enter a valid name' in elements
 
-    def test_create_user_empty_fill_forms(self, driver):
+    def test_create_user_empty_fill_fields(self, driver):
         TestLoginPage().test_login_auth_valid_data(driver)
         MainPageNavMenu(driver).switch_to_admin_menu("Users/Groups")
         UsersCreatePage(driver).create_user()
         UsersCreatePage(driver).click_submit_button()
         elements = UsersCreatePage(driver).check_alert_name_form()
         assert 'Enter name!' in elements
-

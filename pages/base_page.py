@@ -14,29 +14,28 @@ class BasePage:
         self.driver.get(self.url)
 
     'Find a visible element'
-    def element_is_visible(self, locator, timeout=5):
+    def element_is_visible(self, locator, timeout=10):
         self.go_to_element(self.element_is_present(locator))
         return wait(self.driver, timeout).until(EC.visibility_of_element_located(locator))
 
     'Find visible elements'
-    def elements_are_visible(self, locator, timeout=5):
+    def elements_are_visible(self, locator, timeout=10):
         return wait(self.driver, timeout).until(EC.visibility_of_all_elements_located(locator))
 
     'Find a present element'
-    def element_is_present(self, locator, timeout=5):
+    def element_is_present(self, locator, timeout=10):
         return wait(self.driver, timeout).until(EC.presence_of_element_located(locator))
 
     'Find present elements'
-    def elements_are_present(self, locator, timeout=5):
+    def elements_are_present(self, locator, timeout=10):
         return wait(self.driver, timeout).until(EC.presence_of_all_elements_located(locator))
 
     'Find a not visible element'
-    def element_is_not_visible(self, locator, timeout=5):
+    def element_is_not_visible(self, locator, timeout=10):
         return wait(self.driver, timeout).until(EC.invisibility_of_element_located(locator))
 
     'Find clickable elements'
-
-    def element_is_clickable(self, locator, timeout=5):
+    def element_is_clickable(self, locator, timeout=10):
         return wait(self.driver, timeout).until(EC.element_to_be_clickable(locator))
 
     'Go to specified element'

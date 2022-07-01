@@ -5,7 +5,7 @@ from tests.login_test import TestLoginPage
 
 class TestDepartmentPage:
 
-    def test_create_department_all_fill_forms(self, driver):
+    def test_create_department_all_fill_fields(self, driver):
         TestLoginPage().test_login_auth_valid_data(driver)
         MainPageNavMenu(driver).switch_to_admin_menu("Users/Groups")
         DepartmentsCreatePage(driver).create_department()
@@ -18,7 +18,7 @@ class TestDepartmentPage:
         assert name == output_name
         assert description == output_description
 
-    def test_create_department_required_fill_forms(self, driver):
+    def test_create_department_required_fill_fields(self, driver):
         TestLoginPage().test_login_auth_valid_data(driver)
         MainPageNavMenu(driver).switch_to_admin_menu("Users/Groups")
         DepartmentsCreatePage(driver).create_department()
@@ -30,7 +30,7 @@ class TestDepartmentPage:
         output_name = DepartmentsCreatePage(driver).check_name_fill_form()
         assert name == output_name
 
-    def test_create_department_cyrillic_fill_forms(self, driver):
+    def test_create_department_cyrillic_fill_fields(self, driver):
         TestLoginPage().test_login_auth_valid_data(driver)
         MainPageNavMenu(driver).switch_to_admin_menu("Users/Groups")
         DepartmentsCreatePage(driver).create_department()
@@ -39,7 +39,7 @@ class TestDepartmentPage:
         elements = DepartmentsCreatePage(driver).check_alert_name_form()
         assert 'Please enter a valid name' in elements
 
-    def test_create_department_empty_fill_forms(self, driver):
+    def test_create_department_empty_fill_fields(self, driver):
         TestLoginPage().test_login_auth_valid_data(driver)
         MainPageNavMenu(driver).switch_to_admin_menu("Users/Groups")
         DepartmentsCreatePage(driver).create_department()

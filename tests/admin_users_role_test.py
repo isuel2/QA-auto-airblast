@@ -5,7 +5,7 @@ from tests.login_test import TestLoginPage
 
 class TestRolePage:
 
-    def test_create_role_all_fill_forms(self, driver):
+    def test_create_role_all_fill_fields(self, driver):
         TestLoginPage().test_login_auth_valid_data(driver)
         MainPageNavMenu(driver).switch_to_admin_menu("Users/Groups")
         RolesCreatePage(driver).create_role()
@@ -25,7 +25,7 @@ class TestRolePage:
         assert str(total_core_limit) == output_total_core_limit
         assert str(total_ram_limit) == output_total_ram_limit
 
-    def test_create_role_required_fill_forms(self, driver):
+    def test_create_role_required_fill_fields(self, driver):
         TestLoginPage().test_login_auth_valid_data(driver)
         MainPageNavMenu(driver).switch_to_admin_menu("Users/Groups")
         RolesCreatePage(driver).create_role()
@@ -37,7 +37,7 @@ class TestRolePage:
         output_name = RolesCreatePage(driver).check_name_fill_form()
         assert name == output_name
 
-    def test_create_role_cyrillic_fill_forms(self, driver):
+    def test_create_role_cyrillic_fill_fields(self, driver):
         TestLoginPage().test_login_auth_valid_data(driver)
         MainPageNavMenu(driver).switch_to_admin_menu("Users/Groups")
         RolesCreatePage(driver).create_role()
@@ -46,7 +46,7 @@ class TestRolePage:
         elements = RolesCreatePage(driver).check_alert_name_form()
         assert 'Please enter a valid name' in elements
 
-    def test_create_role_empty_fill_forms(self, driver):
+    def test_create_role_empty_fill_fields(self, driver):
         TestLoginPage().test_login_auth_valid_data(driver)
         MainPageNavMenu(driver).switch_to_admin_menu("Users/Groups")
         RolesCreatePage(driver).create_role()
